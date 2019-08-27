@@ -17,4 +17,8 @@ rm D_lotfac.zip
 
 #cat dados.txt | cut -d, -f1-17 > dados1.txt
 
-w3m -dump d_lotfac.htm |grep "^[0-9]" |tr -s " "|sed -e 's/^[ t]*//' -e 's/ /,/g' |cut -d, -f1-17
+w3m -dump d_lotfac.htm |grep "^[0-9]" |tr -s " "|sed -e 's/^[ t]*//' -e 's/ /,/g' |cut -d, -f1-17 > dados.txt
+
+
+
+
