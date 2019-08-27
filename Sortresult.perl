@@ -7,7 +7,7 @@ use Data::Dumper qw(Dumper);
 
 open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 
-while (<MYHANDLE) {
+while (<MYHANDLE>) {
 
 	printf ("Got $_ \n");
 
