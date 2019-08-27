@@ -1,4 +1,4 @@
-/bin/bash
+/bin/bash -v
 
 wget http://www1.caixa.gov.br/loterias/_arquivos/loterias/D_lotfac.zip
 
