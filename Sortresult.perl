@@ -4,6 +4,15 @@ use warnings;
 use 5.010;
  
 use Data::Dumper qw(Dumper);
+
+open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
+
+while ($line = <MYHANDLE){
+
+	printf ($line);
+
+}
+ 
  
 my @words = qw(foo bar zorg moo);
  
