@@ -7,9 +7,9 @@ use Data::Dumper qw(Dumper);
 
 open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 
-while (my $line = <MYHANDLE){
+while (<MYHANDLE) {
 
-	printf ($line);
+	printf ("Got $_ \n");
 
 }
  
