@@ -23,7 +23,7 @@ while (<MYHANDLE>) {
 		push @arr, $line[$t];
 	}
 
-	printf ("Arr ");
+	printf ("\nArr ");
 	
 	for (my $t = 0; $t < 15 ;$t+=1) {
 		printf ("$arr[$t] ");
@@ -33,7 +33,7 @@ while (<MYHANDLE>) {
 	sub numerically {$a <=> $b}
 	my @sortedarray = sort numerically @arr;
 
-print "Sorted: @sortedarray\n";
+	print "\nSorted: @sortedarray\n";
 	
 #	my @words = qw(@arr);
 	#Dumper \@words;
@@ -43,7 +43,7 @@ print "Sorted: @sortedarray\n";
  
 #	Dumper \@sorted_words;
 #	say Dumper \@sorted_words;
-
+	print "\nSorted2: " ;
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
 		printf ("$sortedarray[$t1] ");
 		
