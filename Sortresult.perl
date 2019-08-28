@@ -20,6 +20,12 @@ while (<MYHANDLE>) {
 		printf ("$line[$t] ");
 		push @arr, $line[$t];
 	}
+
+	printf ("Arr ");
+	
+	for ($t = 2; $t < 17 ;$t+=1) {
+		printf ("$arr[$t] ");
+	}
 	
 	my @words = qw(@arr);
 	#Dumper \@words;
