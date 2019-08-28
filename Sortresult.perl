@@ -6,6 +6,8 @@ use 5.010;
 use Data::Dumper qw(Dumper);
 
 open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
+open OUTHANDLE, ">dados1.dat") or die ("Cannot open dados1.dat");
+
 
 while (<MYHANDLE>) {
 
@@ -48,13 +50,10 @@ while (<MYHANDLE>) {
 		printf ("$sortedarray[$t1] ");
 		
 	}
-
+	print OUTHANDLE @sortedarray;
 }
  
 
 
- 
-
- 
-
 close MYHANDLE;
+close OUTHANDLE;
