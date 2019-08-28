@@ -22,10 +22,12 @@ while (<MYHANDLE>) {
 	}
 	
 	my @words = qw(@arr);
+	Dumper \@words;
 #	say Dumper \@words;
  
 	my @sorted_words = sort @words;
  
+	Dumper \@sorted_words;
 #	say Dumper \@sorted_words;
 
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
