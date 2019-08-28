@@ -15,14 +15,15 @@ while (<MYHANDLE>) {
 	
 	
 	
-	for (my $loop=2 (2..16) {
-		printf ("$line[$loop]");
-		
-	}
 	
+	for (my $t = 2; $t < 17 ;$t+=1) {
+		printf ("$line[$t]");
+	}
 
 }
  
+
+
  
 my @words = qw(foo bar zorg moo);
  
@@ -32,5 +33,4 @@ my @sorted_words = sort @words;
  
 say Dumper \@sorted_words;
 
-close MYHANDLE
-
+close MYHANDLE;
