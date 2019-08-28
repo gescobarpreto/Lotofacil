@@ -27,17 +27,23 @@ while (<MYHANDLE>) {
 		printf ("$arr[$t] ");
 	}
 	
-	my @words = qw(@arr);
+#	my @array = qw(1 2 3 4 5);
+	sub numerically {$a <=> $b}
+	my @sortedarray = sort numerically @arr;
+
+print "Sorted: @sortedarray\n";
+	
+#	my @words = qw(@arr);
 	#Dumper \@words;
-	say Dumper \@words;
+#	say Dumper \@words;
  
-	my @sorted_words = sort @words;
+#	my @sorted_words = sort @words;
  
-	Dumper \@sorted_words;
+#	Dumper \@sorted_words;
 #	say Dumper \@sorted_words;
 
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
-		printf ("$sorted_words[$t1] ");
+		printf ("$sortedarray[$t1] ");
 		
 	}
 
