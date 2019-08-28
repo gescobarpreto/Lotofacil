@@ -6,7 +6,7 @@ use 5.010;
 use Data::Dumper qw(Dumper);
 
 open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
-open OUTHANDLE, ">dados1.dat") or die ("Cannot open dados1.dat");
+open OUTHANDLE, ">dados1.dat" or die ("Cannot open dados1.dat");
 
 
 while (<MYHANDLE>) {
