@@ -10,6 +10,11 @@ open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 while (<MYHANDLE>) {
 
 	printf ("Got $_ \n");
+	
+	my @line = split (',', $_);
+	
+	printf ("$line[0] $line[1] $line[2] . \n");
+	
 
 }
  
@@ -22,4 +27,5 @@ my @sorted_words = sort @words;
  
 say Dumper \@sorted_words;
 
+close MYHANDLE
 
