@@ -10,8 +10,8 @@ open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 while (<MYHANDLE>) {
 
 	printf ("Got $_ \n");
-	
-	my @line = split (',', $_);
+	my $line1 = $_.strip();
+	my @line = split (',', $line1);
 	
 	
 	my @arr;
