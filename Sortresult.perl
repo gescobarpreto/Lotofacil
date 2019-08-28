@@ -9,7 +9,7 @@ open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 
 while (<MYHANDLE>) {
 
-	printf ("\nGot $_ \n");
+	printf ("\n\n\nGot $_ \n");
 	my $line1 = $_;
 	$line1 =~ s/\n//g;
 	
@@ -43,7 +43,7 @@ while (<MYHANDLE>) {
  
 #	Dumper \@sorted_words;
 #	say Dumper \@sorted_words;
-	print "\nSorted2: " ;
+	print "Sorted2: " ;
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
 		printf ("$sortedarray[$t1] ");
 		
