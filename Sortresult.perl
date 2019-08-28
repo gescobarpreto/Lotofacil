@@ -9,7 +9,7 @@ open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 
 while (<MYHANDLE>) {
 
-	printf ("Got $_ \n");
+	printf ("\nGot $_ \n");
 	my $line1 = $_;
 	$line1 =~ s/\n//g;
 	
