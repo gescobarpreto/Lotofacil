@@ -10,7 +10,9 @@ open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 while (<MYHANDLE>) {
 
 	printf ("Got $_ \n");
-	my $line1 = $_.strip();
+	my $line1 = $_;
+	$line1 =~ s/\n//g;
+	
 	my @line = split (',', $line1);
 	
 	
