@@ -14,7 +14,7 @@ while (<MYHANDLE>) {
 	my @line = split (',', $_);
 	
 	
-	my @arr
+	my @arr;
 	
 	for (my $t = 2; $t < 17 ;$t+=1) {
 		printf ("$line[$t] ");
