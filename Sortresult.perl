@@ -22,8 +22,8 @@ while (<MYHANDLE>) {
 	}
 	
 	my @words = qw(@arr);
-	Dumper \@words;
-#	say Dumper \@words;
+	#Dumper \@words;
+	say Dumper \@words;
  
 	my @sorted_words = sort @words;
  
