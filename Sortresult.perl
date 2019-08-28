@@ -13,7 +13,12 @@ while (<MYHANDLE>) {
 	
 	my @line = split (',', $_);
 	
-	printf ("$line[0] $line[1] $line[2] . \n");
+	
+	
+	for my $loop=2 (2..16) {
+		printf ("$line[$loop]");
+		
+	}
 	
 
 }
