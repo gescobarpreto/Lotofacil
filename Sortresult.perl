@@ -23,7 +23,7 @@ while (<MYHANDLE>) {
 
 	printf ("Arr ");
 	
-	for (my $t = 2; $t < 17 ;$t+=1) {
+	for (my $t = 0; $t < 15 ;$t+=1) {
 		printf ("$arr[$t] ");
 	}
 	
