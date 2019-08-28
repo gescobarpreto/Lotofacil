@@ -18,6 +18,12 @@ while (<MYHANDLE>) {
 	
 	for (my $t = 2; $t < 17 ;$t+=1) {
 		printf ("$line[$t]");
+		my @words = qw(@line);
+		say Dumper \@words;
+ 
+		my @sorted_words = sort @words;
+ 
+		say Dumper \@sorted_words;
 	}
 
 }
@@ -25,12 +31,7 @@ while (<MYHANDLE>) {
 
 
  
-my @words = qw(foo bar zorg moo);
+
  
-say Dumper \@words;
- 
-my @sorted_words = sort @words;
- 
-say Dumper \@sorted_words;
 
 close MYHANDLE;
