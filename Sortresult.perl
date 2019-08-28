@@ -15,7 +15,7 @@ while (<MYHANDLE>) {
 	
 	
 	
-	for my $loop=2 (2..16) {
+	for (my $loop=2 (2..16) {
 		printf ("$line[$loop]");
 		
 	}
