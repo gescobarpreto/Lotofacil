@@ -21,7 +21,7 @@ my $password = '123MudarDB';
  
 # connect to MySQL database
 my %attr = ( PrintError=>0,  # turn off error reporting via warn()
-             RaiseError=>1};   # turn on error reporting via die()           
+             RaiseError=>1);   # turn on error reporting via die()           
  
 my $dbh  = DBI->connect($dsn,$username,$password, \%attr);
  
