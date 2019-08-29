@@ -33,7 +33,7 @@ say "Connected to the MySQL database.";
 
 while (<MYHANDLE>) {
 
-	printf ("\n\n\nGot $_ \n");
+#	printf ("\n\n\nGot $_ \n");
 	my $line1 = $_;
 	$line1 =~ s/\n//g;
 	
@@ -43,21 +43,21 @@ while (<MYHANDLE>) {
 	my @arr;
 	
 	for (my $t = 2; $t < 17 ;$t+=1) {
-		printf ("$line[$t] ");
+#		printf ("$line[$t] ");
 		push @arr, $line[$t];
 	}
 
-	printf ("\nArr ");
+#	printf ("\nArr ");
 	
 	for (my $t = 0; $t < 15 ;$t+=1) {
-		printf ("$arr[$t] ");
+#		printf ("$arr[$t] ");
 	}
 	
 #	my @array = qw(1 2 3 4 5);
 	sub numerically {$a <=> $b}
 	my @sortedarray = sort numerically @arr;
 
-	print "\nSorted: @sortedarray\n";
+#	print "\nSorted: @sortedarray\n";
 	
 #	my @words = qw(@arr);
 	#Dumper \@words;
@@ -69,7 +69,7 @@ while (<MYHANDLE>) {
 #	say Dumper \@sorted_words;
 	print "Sorted2: " ;
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
-		printf ("$sortedarray[$t1] ");
+#		printf ("$sortedarray[$t1] ");
 		print OUTHANDLE "$sortedarray[$t1]," ;
 		
 	}
