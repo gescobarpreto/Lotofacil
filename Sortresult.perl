@@ -37,7 +37,7 @@ my $query = "insert into concursos (cod_lot, num_concurso, data_concurso)
 			values (?, ?, ?) ";
 
 # prepare your statement for connecting to the database
-my $statement = $connection->prepare($query);
+my $statement = $dbh->prepare($query);
 
 # execute your SQL statement
 $statement->execute('1', '123', '25102019');
