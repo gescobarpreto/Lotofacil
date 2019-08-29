@@ -36,7 +36,7 @@ say "Connected to the MySQL database.";
 my $sth = $dbh->prepare("SELECT * FROM tipo_loterias");
 $sth->execute();
 while (my $ref = $sth->fetchrow_hashref()) {
-  print "Found a row: id = $ref->{'id'}, name = $ref->{'name'}\n";
+  print "Found a row: id = $ref->{'cod_lot'}, name = $ref->{'nome_lot'}\n";
 }
 $sth->finish();
 
