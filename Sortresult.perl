@@ -1,12 +1,31 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use 5.010;
+#use 5.010;
+use v5.10; # for say() function
+use DBI;
  
 use Data::Dumper qw(Dumper);
 
 open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 open OUTHANDLE, ">dados1.dat" or die ("Cannot open dados1.dat");
+
+
+ 
+
+say "Perl MySQL Connect Demo";
+# MySQL database configuration
+my $dsn = "DBI:mysql:perlmysqldb";
+my $username = "root";
+my $password = '';
+ 
+# connect to MySQL database
+my %attr = ( PrintError=>0,  # turn off error reporting via warn()
+             RaiseError=>1};   # turn on error reporting via die()           
+ 
+my $dbh  = DBI->connect($dsn,$username,$password, \%attr);
+ 
+say "Connected to the MySQL database.";
 
 
 while (<MYHANDLE>) {
@@ -48,9 +67,10 @@ while (<MYHANDLE>) {
 	print "Sorted2: " ;
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
 		printf ("$sortedarray[$t1] ");
+		print OUTHANDLE "$sortedarray[$t1]," ;
 		
 	}
-	print OUTHANDLE @sortedarray;
+	print OUTHANDLE "\n";
 }
  
 
