@@ -32,6 +32,18 @@ my $dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa
 say "Connected to the MySQL database.";
 
 
+# set the value of your SQL query
+my $query = "insert into concursos (cod_lot, num_concurso, data_concurso) 
+			values (?, ?, ?) ";
+
+# prepare your statement for connecting to the database
+my $statement = $connection->prepare($query);
+
+# execute your SQL statement
+$statement->execute('1', '123', '25102019');
+
+
+
 # now retrieve data from the table.
 my $sth = $dbh->prepare("SELECT * FROM tipo_loterias");
 $sth->execute();
