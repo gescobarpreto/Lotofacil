@@ -31,6 +31,17 @@ my $dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa
  
 say "Connected to the MySQL database.";
 
+
+# now retrieve data from the table.
+my $sth = $dbh->prepare("SELECT * FROM tipo_loterias");
+$sth->execute();
+while (my $ref = $sth->fetchrow_hashref()) {
+  print "Found a row: id = $ref->{'id'}, name = $ref->{'name'}\n";
+}
+$sth->finish();
+
+
+
 while (<MYHANDLE>) {
 
 #	printf ("\n\n\nGot $_ \n");
@@ -67,7 +78,7 @@ while (<MYHANDLE>) {
  
 #	Dumper \@sorted_words;
 #	say Dumper \@sorted_words;
-	print "Sorted2: " ;
+#	print "Sorted2: " ;
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
 #		printf ("$sortedarray[$t1] ");
 		print OUTHANDLE "$sortedarray[$t1]," ;
