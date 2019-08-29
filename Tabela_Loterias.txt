@@ -1,0 +1,30 @@
+create database loterias;
+
+
+use loterias;
+
+
+create table tipo_loterias 
+(cod_lot integer (3), 
+nome_lot varchar (40)
+);
+
+show create table tipo_loterias;
+
+insert into tipo_loterias values
+('1', 'LOTOFACIL');
+
+insert into tipo_loterias values
+('2', 'MEGASENA');
+
+insert into tipo_loterias values
+('3', 'QUINA');
+
+
+create table concursos 
+(cod_lot integer (3), 
+num_concurso integer (6), 
+data_concurso varchar (40)
+);
+
+
