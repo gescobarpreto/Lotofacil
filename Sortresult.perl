@@ -31,7 +31,6 @@ my $dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa
  
 say "Connected to the MySQL database.";
 
-
 while (<MYHANDLE>) {
 
 	printf ("\n\n\nGot $_ \n");
@@ -81,3 +80,7 @@ while (<MYHANDLE>) {
 
 close MYHANDLE;
 close OUTHANDLE;
+
+$dbh->disconnect();
+
+say "Disconnected to the MySQL database.";
