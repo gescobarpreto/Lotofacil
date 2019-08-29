@@ -15,15 +15,19 @@ open OUTHANDLE, ">dados1.dat" or die ("Cannot open dados1.dat");
 
 say "Perl MySQL Connect Demo";
 # MySQL database configuration
-my $dsn = "DBI:mysql:loterias:mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com";
-my $username = "admin";
-my $password = '123MudarDB';
+#my $dsn = "DBI:mysql:loterias:mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com";
+#my $username = "admin";
+#my $password = '123MudarDB';
  
 # connect to MySQL database
 my %attr = ( PrintError=>0,  # turn off error reporting via warn()
              RaiseError=>1);   # turn on error reporting via die()           
  
-my $dbh  = DBI->connect($dsn,$username,$password, \%attr);
+#my $dbh  = DBI->connect($dsn,$username,$password, \%attr);
+
+my $dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com",
+                       "admin", "123MudarDB",
+                       {'RaiseError' => 1});
  
 say "Connected to the MySQL database.";
 
