@@ -153,9 +153,10 @@ while (<MYHANDLE>) {
 		$run_prepare = 1;
 	}
 
+	my @array_insert_values = split (',', $insert_values);
 	# execute your SQL statement
 	#$statement->execute($insert_values) || DIE "execute: $$statement: $DBI::errstr";
-	$statement->execute($insert_values);
+	$statement->execute(@array_insert_values);
 	
 	$statement->finish();
 	
