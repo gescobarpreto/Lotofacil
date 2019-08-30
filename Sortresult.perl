@@ -10,6 +10,7 @@ use Data::Dumper qw(Dumper);
 open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 open OUTHANDLE, ">dados1.dat" or die ("Cannot open dados1.dat");
 my $tipo_loteria = 1;
+my $qtde_bolas_sorteadas = 15;
 
  
 
@@ -100,6 +101,8 @@ while (<MYHANDLE>) {
 			
 	}
 	
+	print "\n";
+	
 	my $array_count = 0;
 	for (my $count = 1; $count <= $qtde_bolas; $count++){
 		my $count_formated = sprintf("%02d", $count);
@@ -107,7 +110,9 @@ while (<MYHANDLE>) {
 		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields.", bola".$count_formated;
 			$query_values = $query_values.", 1";
-			$array_count++;
+			if ($array_count < $qtde_bolas_sorteadas){
+				$array_count++;
+			}
 		}
 		else{
 			$query_fields = $query_fields.", bola".$count_formated;
