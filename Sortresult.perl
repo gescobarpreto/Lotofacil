@@ -31,7 +31,7 @@ my $dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa
  
 say "Connected to the MySQL database.";
 
-my $qtde_bolas = 0
+my $qtde_bolas = 0;
 # now retrieve data from the table.
 my $sth = $dbh->prepare("select qtde_bolas from tipo_loterias
 where nome_loteria='LOTOFACIL';");
