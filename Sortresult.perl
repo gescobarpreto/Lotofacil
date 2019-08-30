@@ -59,12 +59,13 @@ while (<MYHANDLE>) {
 	my @line = split (',', $line1);
 	
 	$query_fields = $query_fields."cod_loteria, ";
-	$query_values = $query_values."1, ";
+	$query_values = $query_values."?, ";
+	my $insert_values = "'1', ";
 	
 	$query_fields = $query_fields."num_concurso, ";
 	my $concurso = $line[0];
-	$query_values = $query_values.$concurso;
-	
+	$query_values = $query_values."?";
+	my $insert_values = $insert_values."'".$concurso."'";
 	
 	
 	
@@ -113,14 +114,14 @@ while (<MYHANDLE>) {
 		
 		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields.", bola".$count_formated;
-			$query_values = $query_values.", 1";
+			$query_values = $query_values.", ?";
 			if ($array_count < $qtde_bolas_sorteadas){
 				$array_count++;
 			}
 		}
 		else{
 			$query_fields = $query_fields.", bola".$count_formated;
-			$query_values = $query_values.", 0";
+			$query_values = $query_values.", ?";
 		}
 	
 	}
@@ -130,10 +131,17 @@ while (<MYHANDLE>) {
 	my $query = $query_fields.$query_values;
 
 	print ("Query: $query \n");
+	print ("insert_values: $insert_values \n");
+	# prepare your statement for connecting to the database
+#	my $statement = $dbh->prepare($query);
+
+	# execute your SQL statement
+#	$statement->execute($insert_values);
 	
 	$query_fields = "insert into resultados (";
 	$query_values = " values ( ";
 	$query = "";
+	$insert_values = "";
 	
 	print OUTHANDLE "\n";
 }
