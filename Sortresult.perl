@@ -111,6 +111,14 @@ while (<MYHANDLE>) {
 		}
 	
 	}
+	my $query = $query_fields.$query_values;
+
+	print ("Query: $query \n");
+	
+	$query_fields = "";
+	$query_values = "";
+	$query = "";
+	
 	print OUTHANDLE "\n";
 }
 
@@ -122,9 +130,9 @@ while (<MYHANDLE>) {
 #my $query_fields = "insert into resultados (";
 #my $query_values = " values (?, ?, ?) ";
 
-my $query = $query_fields.$query_values;
+#my $query = $query_fields.$query_values;
 
-print ("Query: $query \n");
+#print ("Query: $query \n");
 
 # prepare your statement for connecting to the database
 #my $statement = $dbh->prepare($query);
