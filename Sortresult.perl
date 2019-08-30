@@ -146,11 +146,11 @@ while (<MYHANDLE>) {
 	print ("insert_values: $insert_values \n");
 	
 	
-	
+	my $statement;
 	# prepare your statement for connecting to the database
 	#my $statement = $dbh->prepare($query)|| DIE "prepare: $$statement: $DBI::errstr";
 	if ($run_prepare == 0){
-		my $statement = $dbh->prepare($query);
+		$statement = $dbh->prepare($query);
 		$run_prepare = 1;
 	}
 
