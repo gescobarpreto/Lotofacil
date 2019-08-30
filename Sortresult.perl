@@ -71,7 +71,7 @@ while (<MYHANDLE>) {
 	$query_fields = $query_fields."cod_loteria, ";
 	$query_values = $query_values."?, ";
 		
-	$query_fields = $query_fields."num_concurso, ";
+	$query_fields = $query_fields."num_concurso";
 	my $concurso = $line[0];
 	$query_values = $query_values."?";
 	my $insert_values = "'1', '".$concurso."'";
@@ -151,6 +151,7 @@ while (<MYHANDLE>) {
 	if ($run_prepare == 0){
 		$statement = $dbh->prepare($query);
 		$run_prepare = 1;
+		print ("Run prepare");
 	}
 
 	my @array_insert_values = split (',', $insert_values);
