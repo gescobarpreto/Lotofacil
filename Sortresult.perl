@@ -70,12 +70,11 @@ while (<MYHANDLE>) {
 	
 	$query_fields = $query_fields."cod_loteria, ";
 	$query_values = $query_values."?, ";
-	my $insert_values = "'1', ";
-	
+		
 	$query_fields = $query_fields."num_concurso, ";
 	my $concurso = $line[0];
 	$query_values = $query_values."?";
-	$insert_values = $insert_values."'".$concurso."'";
+	$insert_values = "'1', '".$concurso."'";
 	
 	
 	
@@ -125,7 +124,7 @@ while (<MYHANDLE>) {
 		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields.", bola".$count_formated;
 			$query_values = $query_values.", ?";
-			$insert_values = $insert_values.", 1";
+			$insert_values = $insert_values.", '1'";
 			if ($array_count < $qtde_bolas_sorteadas){
 				$array_count++;
 			}
@@ -133,7 +132,7 @@ while (<MYHANDLE>) {
 		else{
 			$query_fields = $query_fields.", bola".$count_formated;
 			$query_values = $query_values.", ?";
-			$insert_values = $insert_values.", 0";
+			$insert_values = $insert_values.", '0'";
 		}
 	
 	}
