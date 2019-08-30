@@ -45,6 +45,7 @@ while (my $ref = $sth->fetchrow_hashref()) {
   $qtde_bolas_sorteadas = $ref->{'qtde_bolas_sorteadas'};
 }
 
+$sth->finish();
 
 my $query_fields = "insert into resultados (";
 my $query_values = " values ( ";
@@ -134,11 +135,16 @@ while (<MYHANDLE>) {
 
 	print ("Query: $query \n");
 	print ("insert_values: $insert_values \n");
+	
+	
+	
 	# prepare your statement for connecting to the database
 	my $statement = $dbh->prepare($query);
 
 	# execute your SQL statement
 	$statement->execute($insert_values);
+	
+	$statement->finish();
 	
 	$query_fields = "insert into resultados (";
 	$query_values = " values ( ";
