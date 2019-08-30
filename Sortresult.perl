@@ -139,10 +139,10 @@ while (<MYHANDLE>) {
 	
 	
 	# prepare your statement for connecting to the database
-	my $statement = $dbh->prepare($query);
+	my $statement = $dbh->prepare($query)|| DIE "prepare: $$statement: $DBI::errstr";
 
 	# execute your SQL statement
-	$statement->execute($insert_values);
+	$statement->execute($insert_values) || DIE "execute: $$statement: $DBI::errstr";
 	
 	$statement->finish();
 	
