@@ -115,6 +115,7 @@ while (<MYHANDLE>) {
 		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields.", bola".$count_formated;
 			$query_values = $query_values.", ?";
+			$insert_values = $insert_values.", 1";
 			if ($array_count < $qtde_bolas_sorteadas){
 				$array_count++;
 			}
@@ -122,6 +123,7 @@ while (<MYHANDLE>) {
 		else{
 			$query_fields = $query_fields.", bola".$count_formated;
 			$query_values = $query_values.", ?";
+			$insert_values = $insert_values.", 0";
 		}
 	
 	}
