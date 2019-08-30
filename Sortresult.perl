@@ -33,8 +33,11 @@ say "Connected to the MySQL database.";
 
 
 # set the value of your SQL query
-my $query = "insert into concursos (cod_lot, num_concurso, data_concurso) 
-			values (?, ?, ?) ";
+my $query = "insert into concursos (cod_lot, num_concurso, data_concurso)";
+ 
+$query = $query." values (?, ?, ?) ";
+
+print ("Query: $query");
 
 # prepare your statement for connecting to the database
 my $statement = $dbh->prepare($query);
@@ -44,13 +47,7 @@ $statement->execute('1', '123', '25102019');
 
 
 
-# now retrieve data from the table.
-my $sth = $dbh->prepare("SELECT * FROM tipo_loterias");
-$sth->execute();
-while (my $ref = $sth->fetchrow_hashref()) {
-  print "Found a row: id = $ref->{'cod_lot'}, name = $ref->{'nome_lot'}\n";
-}
-$sth->finish();
+
 
 
 
@@ -100,10 +97,17 @@ while (<MYHANDLE>) {
 }
  
 
+# now retrieve data from the table.
+my $sth = $dbh->prepare("SELECT * FROM tipo_loterias");
+$sth->execute();
+while (my $ref = $sth->fetchrow_hashref()) {
+  print "Found a row: id = $ref->{'cod_lot'}, name = $ref->{'nome_lot'}\n";
+}
+$sth->finish();
+
+
+$dbh->disconnect();
+say "Disconnected to the MySQL database.";
 
 close MYHANDLE;
 close OUTHANDLE;
-
-$dbh->disconnect();
-
-say "Disconnected to the MySQL database.";
