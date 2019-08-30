@@ -4,6 +4,7 @@ use warnings;
 #use 5.010;
 use v5.10; # for say() function
 use DBI;
+my $DS="dbi:mysql:QuizTaker";
  
 use Data::Dumper qw(Dumper);
 
@@ -12,7 +13,7 @@ open OUTHANDLE, ">dados1.dat" or die ("Cannot open dados1.dat");
 my $tipo_loteria = 1;
 my $qtde_bolas = 100;
 my $qtde_bolas_sorteadas = 0;
-
+my $run_prepare = 0;
 
  
 
@@ -47,9 +48,17 @@ while (my $ref = $sth->fetchrow_hashref()) {
 
 $sth->finish();
 
+$dbh->disconnect();
+say "Disconnected to the MySQL database.";
+
 my $query_fields = "insert into resultados (";
 my $query_values = " values ( ";
 
+
+$dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com",
+                       "admin", "123MudarDB",
+                       {'RaiseError' => 1});
+ 
 
 while (<MYHANDLE>) {
 
@@ -66,7 +75,7 @@ while (<MYHANDLE>) {
 	$query_fields = $query_fields."num_concurso, ";
 	my $concurso = $line[0];
 	$query_values = $query_values."?";
-	my $insert_values = $insert_values."'".$concurso."'";
+	$insert_values = $insert_values."'".$concurso."'";
 	
 	
 	
@@ -139,10 +148,15 @@ while (<MYHANDLE>) {
 	
 	
 	# prepare your statement for connecting to the database
-	my $statement = $dbh->prepare($query)|| DIE "prepare: $$statement: $DBI::errstr";
+	#my $statement = $dbh->prepare($query)|| DIE "prepare: $$statement: $DBI::errstr";
+	if ($run_prepare == 0){
+		my $statement = $dbh->prepare($query);
+		$run_prepare = 1;
+	}
 
 	# execute your SQL statement
-	$statement->execute($insert_values) || DIE "execute: $$statement: $DBI::errstr";
+	#$statement->execute($insert_values) || DIE "execute: $$statement: $DBI::errstr";
+	$statement->execute($insert_values);
 	
 	$statement->finish();
 	
@@ -182,7 +196,7 @@ while (<MYHANDLE>) {
 
 
 
-$sth->finish();
+#$sth->finish();
 
 
 $dbh->disconnect();
