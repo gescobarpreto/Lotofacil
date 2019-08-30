@@ -47,7 +47,7 @@ while (my $ref = $sth->fetchrow_hashref()) {
 #my $query = "insert into concursos (cod_lot, num_concurso, data_concurso)";
 #$query = $query." values (?, ?, ?) ";
 
-my $query = "insert into resultados (
+my $query = "insert into resultados (";
 
 print ("Query: $query");
 
