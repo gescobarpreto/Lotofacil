@@ -44,7 +44,8 @@ while (my $ref = $sth->fetchrow_hashref()) {
 }
 
 
-
+my $query_fields = "insert into resultados (";
+my $query_values = " values ( ";
 
 
 while (<MYHANDLE>) {
@@ -55,6 +56,13 @@ while (<MYHANDLE>) {
 	
 	my @line = split (',', $line1);
 	
+	$query_fields = $query_fields."cod_loteria, ";
+	my $concurso = $line[0];
+	$query_values = $query_values.$concurso.", ";
+	
+	$query_fields = $query_fields."num_concurso, ";
+	my $data = $line[1];
+	$query_values = $query_values.$concurso.", ";
 	
 	my @arr;
 	
@@ -85,9 +93,23 @@ while (<MYHANDLE>) {
 #	say Dumper \@sorted_words;
 #	print "Sorted2: " ;
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
-#		printf ("$sortedarray[$t1] ");
+		printf ("$sortedarray[$t1] ");
 		print OUTHANDLE "$sortedarray[$t1]," ;
-		
+			
+	}
+	
+	my $array_count = 0;
+	for (my $count = 1; $count <= $qtde_bolas; $count++){
+		my $count_formated = sprintf("%02d", $count);
+		if ($array_count == $count){
+			$query_fields = $query_fields."bola".$count_formated.", ";
+			$query_values = $query_values."1, ";
+		}
+		else{
+			$query_fields = $query_fields."bola".$count_formated.", ";
+			$query_values = $query_values."0, ";
+		}
+	
 	}
 	print OUTHANDLE "\n";
 }
@@ -97,12 +119,12 @@ while (<MYHANDLE>) {
 #my $query = "insert into concursos (cod_lot, num_concurso, data_concurso)";
 #$query = $query." values (?, ?, ?) ";
 
-my $query_fields = "insert into resultados (";
-my $query_values = " values (?, ?, ?) ";
+#my $query_fields = "insert into resultados (";
+#my $query_values = " values (?, ?, ?) ";
 
 my $query = $query_fields.$query_values;
 
-print ("Query: $query");
+print ("Query: $query \n");
 
 # prepare your statement for connecting to the database
 #my $statement = $dbh->prepare($query);
