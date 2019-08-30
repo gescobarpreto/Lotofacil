@@ -10,7 +10,9 @@ use Data::Dumper qw(Dumper);
 open MYHANDLE, "dados.txt" or die "Unable to Open: $! \n";
 open OUTHANDLE, ">dados1.dat" or die ("Cannot open dados1.dat");
 my $tipo_loteria = 1;
-my $qtde_bolas_sorteadas = 15;
+my $qtde_bolas = 100;
+my $qtde_bolas_sorteadas = 0;
+
 
  
 
@@ -32,7 +34,6 @@ my $dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa
  
 say "Connected to the MySQL database.";
 
-my $qtde_bolas = 0;
 # now retrieve data from the table.
 my $sth = $dbh->prepare("select qtde_bolas from tipo_loterias
 where nome_loteria='LOTOFACIL';");
@@ -40,11 +41,11 @@ where nome_loteria='LOTOFACIL';");
 $sth->execute();
 
 while (my $ref = $sth->fetchrow_hashref()) {
-  print "Found a row: qtde_bolas = $ref->{'qtde_bolas'}\n";
-  $qtde_bolas = $ref->{'qtde_bolas'};
+  print "Found a row: qtde_bolas_sorteadas = $ref->{'qtde_bolas_sorteadas'}\n";
+  $qtde_bolas_sorteadas = $ref->{'qtde_bolas_sorteadas'};
 }
 
-my $qtde_bolas = 100;
+
 my $query_fields = "insert into resultados (";
 my $query_values = " values ( ";
 
