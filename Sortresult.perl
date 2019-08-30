@@ -135,10 +135,10 @@ while (<MYHANDLE>) {
 	print ("Query: $query \n");
 	print ("insert_values: $insert_values \n");
 	# prepare your statement for connecting to the database
-#	my $statement = $dbh->prepare($query);
+	my $statement = $dbh->prepare($query);
 
 	# execute your SQL statement
-#	$statement->execute($insert_values);
+	$statement->execute($insert_values);
 	
 	$query_fields = "insert into resultados (";
 	$query_values = " values ( ";
