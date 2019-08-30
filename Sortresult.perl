@@ -74,7 +74,7 @@ while (<MYHANDLE>) {
 	$query_fields = $query_fields."num_concurso, ";
 	my $concurso = $line[0];
 	$query_values = $query_values."?";
-	$insert_values = "'1', '".$concurso."'";
+	my $insert_values = "'1', '".$concurso."'";
 	
 	
 	
