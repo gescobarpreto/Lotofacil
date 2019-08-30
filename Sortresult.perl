@@ -57,7 +57,7 @@ while (<MYHANDLE>) {
 	my @line = split (',', $line1);
 	
 	$query_fields = $query_fields."cod_loteria, ";
-	$query_values = $query_values.$concurso."1, ";
+	$query_values = $query_values."1, ";
 	
 	$query_fields = $query_fields."num_concurso, ";
 	my $concurso = $line[0];
