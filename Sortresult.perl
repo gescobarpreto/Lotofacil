@@ -96,19 +96,19 @@ while (<MYHANDLE>) {
 #	say Dumper \@sorted_words;
 #	print "Sorted2: " ;
 	for (my $t1 = 0; $t1 < 15 ;$t1+=1) {
-		printf ("$sortedarray[$t1] ");
+#		printf ("$sortedarray[$t1] ");
 		print OUTHANDLE "$sortedarray[$t1]," ;
 			
 	}
 	
-	print "\n";
+#	print "\n";
 	
 	my $array_count = 0;
 	$qtde_bolas_sorteadas = @sortedarray-1;
 	
 	for (my $count = 1; $count <= $qtde_bolas; $count++){
 		my $count_formated = sprintf("%02d", $count);
-		print ("if $sortedarray[$array_count] == $count_formated   -    qtde_bolas_sorteadas= $qtde_bolas_sorteadas       array_count = $array_count  \n");
+#		print ("if $sortedarray[$array_count] == $count_formated   -    qtde_bolas_sorteadas= $qtde_bolas_sorteadas       array_count = $array_count  \n");
 		
 		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields.", bola".$count_formated;
