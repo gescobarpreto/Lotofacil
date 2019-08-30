@@ -108,7 +108,8 @@ while (<MYHANDLE>) {
 	
 	for (my $count = 1; $count <= $qtde_bolas; $count++){
 		my $count_formated = sprintf("%02d", $count);
-		#print (
+		print ("if $sortedarray[$array_count] == $count_formated   -    qtde_bolas_sorteadas= $qtde_bolas_sorteadas       array_count = $array_count  \n");
+		
 		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields.", bola".$count_formated;
 			$query_values = $query_values.", 1";
