@@ -104,6 +104,8 @@ while (<MYHANDLE>) {
 	print "\n";
 	
 	my $array_count = 0;
+	$qtde_bolas_sorteadas = @sortedarray;
+	
 	for (my $count = 1; $count <= $qtde_bolas; $count++){
 		my $count_formated = sprintf("%02d", $count);
 		#print (
