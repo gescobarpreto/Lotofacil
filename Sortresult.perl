@@ -40,24 +40,8 @@ $sth->execute();
 
 while (my $ref = $sth->fetchrow_hashref()) {
   print "Found a row: qtde_bolas = $ref->{'qtde_bolas'}\n";
+  my $qtde_bolas = $ref->{'qtde_bolas'};
 }
-
-
-# set the value of your SQL query
-#my $query = "insert into concursos (cod_lot, num_concurso, data_concurso)";
-#$query = $query." values (?, ?, ?) ";
-
-my $query = "insert into resultados (";
-
-print ("Query: $query");
-
-# prepare your statement for connecting to the database
-#my $statement = $dbh->prepare($query);
-
-# execute your SQL statement
-#$statement->execute('1', '123', '25102019');
-
-
 
 
 
@@ -107,14 +91,35 @@ while (<MYHANDLE>) {
 	}
 	print OUTHANDLE "\n";
 }
- 
+
+
+ # set the value of your SQL query
+#my $query = "insert into concursos (cod_lot, num_concurso, data_concurso)";
+#$query = $query." values (?, ?, ?) ";
+
+my $query_fields = "insert into resultados (";
+my $query_values = " values (?, ?, ?) ";
+
+my $query = $query_fields.$query_values;
+
+print ("Query: $query");
+
+# prepare your statement for connecting to the database
+#my $statement = $dbh->prepare($query);
+
+# execute your SQL statement
+#$statement->execute('1', '123', '25102019');
+
 
 # now retrieve data from the table.
-my $sth = $dbh->prepare("SELECT * FROM tipo_loterias");
-$sth->execute();
-while (my $ref = $sth->fetchrow_hashref()) {
-  print "Found a row: id = $ref->{'cod_lot'}, name = $ref->{'nome_lot'}\n";
-}
+#my $sth = $dbh->prepare("SELECT * FROM tipo_loterias");
+#$sth->execute();
+#while (my $ref = $sth->fetchrow_hashref()) {
+#  print "Found a row: id = $ref->{'cod_lot'}, name = $ref->{'nome_lot'}\n";
+#}
+
+
+
 $sth->finish();
 
 
