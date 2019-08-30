@@ -61,7 +61,7 @@ while (<MYHANDLE>) {
 	
 	$query_fields = $query_fields."num_concurso, ";
 	my $concurso = $line[0];
-	$query_values = $query_values.$concurso.", ";
+	$query_values = $query_values.$concurso;
 	
 	
 	
@@ -105,16 +105,19 @@ while (<MYHANDLE>) {
 		my $count_formated = sprintf("%02d", $count);
 		#print (
 		if ($sortedarray[$array_count] == $count_formated){
-			$query_fields = $query_fields."bola".$count_formated.", ";
-			$query_values = $query_values."1, ";
+			$query_fields = $query_fields.", bola".$count_formated;
+			$query_values = $query_values.", 1";
 			$array_count++;
 		}
 		else{
-			$query_fields = $query_fields."bola".$count_formated.", ";
-			$query_values = $query_values."0, ";
+			$query_fields = $query_fields.", bola".$count_formated;
+			$query_values = $query_values.", 0";
 		}
 	
 	}
+	
+	$query_fields = $query_fields.")";
+	$query_values = $query_values.")";
 	my $query = $query_fields.$query_values;
 
 	print ("Query: $query \n");
