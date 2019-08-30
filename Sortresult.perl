@@ -57,12 +57,14 @@ while (<MYHANDLE>) {
 	my @line = split (',', $line1);
 	
 	$query_fields = $query_fields."cod_loteria, ";
+	$query_values = $query_values.$concurso."1, ";
+	
+	$query_fields = $query_fields."num_concurso, ";
 	my $concurso = $line[0];
 	$query_values = $query_values.$concurso.", ";
 	
-	$query_fields = $query_fields."num_concurso, ";
-	my $data = $line[1];
-	$query_values = $query_values.$concurso.", ";
+	
+	
 	
 	my @arr;
 	
@@ -101,10 +103,11 @@ while (<MYHANDLE>) {
 	my $array_count = 0;
 	for (my $count = 1; $count <= $qtde_bolas; $count++){
 		my $count_formated = sprintf("%02d", $count);
-
+		#print (
 		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields."bola".$count_formated.", ";
 			$query_values = $query_values."1, ";
+			$array_count++;
 		}
 		else{
 			$query_fields = $query_fields."bola".$count_formated.", ";
