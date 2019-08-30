@@ -101,7 +101,8 @@ while (<MYHANDLE>) {
 	my $array_count = 0;
 	for (my $count = 1; $count <= $qtde_bolas; $count++){
 		my $count_formated = sprintf("%02d", $count);
-		if ($array_count == $count){
+
+		if ($sortedarray[$array_count] == $count_formated){
 			$query_fields = $query_fields."bola".$count_formated.", ";
 			$query_values = $query_values."1, ";
 		}
@@ -115,8 +116,8 @@ while (<MYHANDLE>) {
 
 	print ("Query: $query \n");
 	
-	$query_fields = "";
-	$query_values = "";
+	$query_fields = "insert into resultados (";
+	$query_values = " values ( ";
 	$query = "";
 	
 	print OUTHANDLE "\n";
