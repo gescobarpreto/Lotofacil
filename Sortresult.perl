@@ -44,7 +44,7 @@ while (my $ref = $sth->fetchrow_hashref()) {
   $qtde_bolas = $ref->{'qtde_bolas'};
 }
 
-
+my $qtde_bolas = 100;
 my $query_fields = "insert into resultados (";
 my $query_values = " values ( ";
 
