@@ -3,10 +3,10 @@ use warnings;
 use ExtUtils::MakeMaker;
  
 WriteMakefile(
-    NAME         => 'Gustavo Escobar Preto',
+    NAME         => 'Lotofacil',
     AUTHOR       => q{GEP <GEP@cpan.org>},
     VERSION => '0.0.1',
-    ABSTRACT     => 'Parsing Markua documents and creating DOM',
+    ABSTRACT     => 'Learn CI/CD',
     ( $ExtUtils::MakeMaker::VERSION >= 6.3002
         ? ( 'LICENSE' => 'perl' )
         : () ),
