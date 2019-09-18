@@ -3,9 +3,9 @@ use warnings;
 use ExtUtils::MakeMaker;
  
 WriteMakefile(
-    NAME         => 'Markua::Parser',
-    AUTHOR       => q{Gabor Szabo <szabgab@cpan.org>},
-    VERSION_FROM => 'lib/Markua/Parser.pm',
+    NAME         => 'Gustavo Escobar Preto',
+    AUTHOR       => q{GEP <GEP@cpan.org>},
+    VERSION_FROM => '0.0.1',
     ABSTRACT     => 'Parsing Markua documents and creating DOM',
     ( $ExtUtils::MakeMaker::VERSION >= 6.3002
         ? ( 'LICENSE' => 'perl' )
