@@ -54,10 +54,16 @@ say "Disconnected to the MySQL database.";
 my $query_fields = "insert into resultados (";
 my $query_values = " values ( ";
 
+my $password = `cat passwd_file`;
 
-$dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com",
+#$dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com",
                        "admin", "123MudarDB",
                        {'RaiseError' => 1});
+ 
+$dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com",
+                       "admin", $password,
+                       {'RaiseError' => 1});
+
  
 
 while (<MYHANDLE>) {
