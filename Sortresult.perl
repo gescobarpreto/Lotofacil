@@ -56,13 +56,15 @@ my $query_values = " values ( ";
 
 my $password = `cat passwd_file`;
 
+$password =~ s/\n//g;
+
 #$dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com",
 #                       "admin", "123MudarDB",
 #                       {'RaiseError' => 1});
  
 $dbh = DBI->connect("DBI:mysql:database=loterias;host=mysqldb.c07fg9lvvdrh.sa-east-1.rds.amazonaws.com",
                        "admin", $password,
-                       {'RaiseError' => 1});
+                       {'RaiseError' => 0});
 
  
 
